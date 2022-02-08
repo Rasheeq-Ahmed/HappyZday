@@ -180,3 +180,54 @@ li span {
       opacity: 0;
  }
 }
+
+
+.message-hide {
+  visibility: hidden;
+  height: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Brush Script MT';
+  font-size: 3em;
+}
+
+.message-reveal {
+  background-image:url('../back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  visibility: visible;
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  font-family: 'Brush Script MT';
+  font-size: 5vh;
+  color: white;
+  animation: fadeIn linear 7s;
+  -webkit-animation: fadeIn linear 7s;
+  -moz-animation: fadeIn linear 7s;
+  -o-animation: fadeIn linear 7s;
+  -ms-animation: fadeIn linear 7s;
+  position: relative;
+  padding-bottom: 4vh;
+
+}
+
+#image {
+height: 60%;
+border-radius: 100%;
+position: absolute;
+right: 20px;
+top: 30px;
+}
+
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}

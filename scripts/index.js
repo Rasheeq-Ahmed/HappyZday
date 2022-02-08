@@ -16,7 +16,6 @@ function hideEverything() {
 }
 
 hideEverything();
-
 const confettiSettings = { target: 'confetti' };
 const confetti = new window.ConfettiGenerator(confettiSettings);
 confetti.render();
@@ -48,10 +47,10 @@ x = setInterval(function() {
     hw = w / 2, // half-width
     hh = h / 2,
     opts = {
-      strings: ['HAPPY', 'BIRTHDAY!', config.name],
-      charSize: 30,
-      charSpacing: 35,
-      lineHeight: 40,
+      strings: ['HAPPY', 'BIRTHDAY', config.name + '!'],
+      charSize: 70,
+      charSpacing: 65,
+      lineHeight: 90,
 
       cx: w / 2,
       cy: h / 2,
@@ -76,8 +75,8 @@ x = setInterval(function() {
       fireworkShardBaseSize: 3,
       fireworkShardAddedSize: 3,
       gravity: 0.1,
-      upFlow: -0.1,
-      letterContemplatingWaitTime: 360,
+      upFlow: -.01,
+      letterContemplatingWaitTime: 1600,
       balloonSpawnTime: 20,
       balloonBaseInflateTime: 10,
       balloonAddedInflateTime: 10,
@@ -416,10 +415,17 @@ x = setInterval(function() {
       letters[l].step();
       if (letters[l].phase !== 'done') done = false;
     }
-
+    
     ctx.translate(-hw, -hh);
+    let gift = document.getElementById('message');
+    
+    //if (done) for (let l = 0; l < letters.length; ++l) letters[l].reset();
+    if (done) gift.className = 'message-reveal';
+    
+    
 
-    if (done) for (let l = 0; l < letters.length; ++l) letters[l].reset();
+
+
   }
 
   for (let i = 0; i < opts.strings.length; ++i) {
@@ -474,6 +480,9 @@ x = setInterval(function() {
     function openBox() {
       if (step === 1) {
         box.removeEventListener('click', openBox, false);
+        let voiceMessage = document.getElementById("voice")
+    voiceMessage.loop = false;
+    voiceMessage.play();
       }
       stepClass(step);
       if (step === 3) {
@@ -489,6 +498,9 @@ x = setInterval(function() {
     function showfireworks() {
       canvasC.style.display = 'initial';
       setTimeout(anim, 1500);
+      // let voiceMessage = document.getElementById("voice")
+      // voiceMessage.loop = false;
+      // voiceMessage.play();
     }
 
     init();
